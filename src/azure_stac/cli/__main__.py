@@ -3,7 +3,6 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-import os
 import sys
 
 from azure_stac.core import get_default_cli
@@ -12,14 +11,6 @@ from azure_stac.core import get_default_cli
 def main() -> int:
     # instantiation our stac cli here
     stac_cli = get_default_cli()
-
-    # Append the src directory (child of stac) to the search path
-    import azure_stac
-
-    src_dir = os.path.abspath(
-        os.path.join(os.path.dirname(os.path.realpath(azure_stac.__file__)), "src")
-    )
-    sys.path.insert(0, src_dir)
 
     try:
         # invoke the stac cli and pass the arguments to it
